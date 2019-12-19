@@ -6,6 +6,7 @@ package com.super_bits.modulosSB.webPaginas.controller.servletes.urls.parametros
 
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreStringFiltros;
+import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreStringSlugs;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfEstruturaParametroRequisicao;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfParametroRequisicao;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.TIPO_PARTE_URL;
@@ -172,6 +173,6 @@ public class ParametroUrlEstrutura implements ItfParametroRequisicao, ItfEstrutu
         if (pValor == null) {
             return null;
         }
-        return mapaObjetoPorString.get(UtilSBCoreStringFiltros.gerarUrlAmigavel(pValor));
+        return mapaObjetoPorString.get(UtilSBCoreStringSlugs.gerarSlugSimples(pValor));
     }
 }
