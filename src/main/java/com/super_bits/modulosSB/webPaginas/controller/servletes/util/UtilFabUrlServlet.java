@@ -7,6 +7,7 @@ package com.super_bits.modulosSB.webPaginas.controller.servletes.util;
 import com.google.common.collect.Lists;
 import com.super_bits.modulosSB.Persistencia.dao.UtilSBPersistencia;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
+import com.super_bits.modulosSB.SBCore.UtilGeral.MapaAcoesSistema;
 import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreStringFiltros;
 import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreStringValidador;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.TIPO_PARTE_URL;
@@ -140,8 +141,13 @@ public class UtilFabUrlServlet {
     }
 
     public static String getSlugDoObjeto(ItfBeanSimples objSimples) {
+
         return UtilSBCoreStringFiltros.gerarUrlAmigavel(objSimples.getNome())
                 + UtilSBCoreStringFiltros.gerarUrlAmigavel("-" + objSimples.getId());
+    }
+
+    public static void getEstruturaDePaginaPorRequisicao(HttpServletRequest requisicao) {
+
     }
 
 }
