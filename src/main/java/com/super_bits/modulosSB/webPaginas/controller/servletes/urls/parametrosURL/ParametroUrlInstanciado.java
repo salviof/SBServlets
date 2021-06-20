@@ -46,7 +46,7 @@ public class ParametroUrlInstanciado implements ItfParametroRequisicaoInstanciad
     public ParametroUrlInstanciado(InfoParametroURL pInfoParametro) {
         try {
             this.estruturaParametro = new ParametroUrlEstrutura(pInfoParametro);
-            System.out.println(estruturaParametro.isUmParametoEntidadeMBPrincipal());
+            //        System.out.println(estruturaParametro.isUmParametoEntidadeMBPrincipal());
         } catch (Throwable t) {
             SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "Erro instanciando Parametro com anotação" + pInfoParametro, t);
             if (pInfoParametro != null) {

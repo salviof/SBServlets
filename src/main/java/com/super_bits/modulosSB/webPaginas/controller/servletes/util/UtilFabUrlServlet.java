@@ -143,7 +143,7 @@ public class UtilFabUrlServlet {
     public static String getSlugDoObjeto(ItfBeanSimples objSimples) {
 
         return UtilSBCoreStringFiltros.gerarUrlAmigavel(objSimples.getNome())
-                + UtilSBCoreStringFiltros.gerarUrlAmigavel("-" + objSimples.getId());
+                + "-" + String.valueOf(objSimples.getId());
     }
 
     public static void getEstruturaDePaginaPorRequisicao(HttpServletRequest requisicao) {
