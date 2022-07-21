@@ -125,6 +125,7 @@ public class UtilFabUrlServlet {
         try {
 
             String caminhoSemURL = requisicao.getRequestURI();
+            caminhoSemURL = caminhoSemURL.replace(".html", "");
             if (caminhoSemURL.startsWith("/")) {
                 caminhoSemURL = caminhoSemURL.substring(1);
             }
