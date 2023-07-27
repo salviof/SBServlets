@@ -8,8 +8,10 @@ import com.super_bits.modulosSB.webPaginas.controller.servletes.util.UtilFabUrlS
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import javax.persistence.EntityManager;
 import org.coletivojava.fw.api.tratamentoErros.FabErro;
 
@@ -44,6 +46,23 @@ public class UrlInterpretada {
         }
         defPartesObrigatoriasPreenchidas();
 
+    }
+
+    public void printParametrosComValoresInterpretados() {
+        System.out.println("Parametros de url");
+
+        for (Iterator<Map.Entry<ItfFabUrlServletSBFW, ParteURLServlet>> it = partes.entrySet().iterator(); it.hasNext();) {
+            Entry<ItfFabUrlServletSBFW, ParteURLServlet> parteURL = it.next();
+            if (parteURL.getValue() != null) {
+                System.out.println(parteURL.getKey() + "--->" + parteURL.getValue().getValor().toString());
+            } else {
+                if (parteURL.getValue() != null) {
+                    System.out.println(parteURL.getKey() + "--->" + parteURL.getValue().toString());
+                } else {
+                    System.out.println(parteURL.getKey() + "---> NULO");
+                }
+            }
+        }
     }
 
     public UrlInterpretada(Class<? extends ItfFabUrlServletSBFW> pFabrica, List<String> parametros) throws UnsupportedOperationException {
