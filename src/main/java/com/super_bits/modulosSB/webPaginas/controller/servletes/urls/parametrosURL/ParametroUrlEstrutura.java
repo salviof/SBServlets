@@ -85,7 +85,7 @@ public class ParametroUrlEstrutura implements ItfParametroRequisicao, ItfEstrutu
                 mapaObjetoPorString = new HashMap<>();
                 for (ItfFabrica fab : pInfo.fabricaObjetosRelacionada().getEnumConstants()) {
                     ItfBeanSimples objeto = (ItfBeanSimples) fab.getRegistro();
-                    mapaObjetoPorString.put(UtilSBCoreStringFiltros.gerarUrlAmigavel(objeto.getNome()), objeto);
+                    mapaObjetoPorString.put(UtilSBCoreStringSlugs.gerarSlugSimples(objeto.getNome()).toUpperCase(), objeto);
                 }
             } else {
 
@@ -173,6 +173,6 @@ public class ParametroUrlEstrutura implements ItfParametroRequisicao, ItfEstrutu
         if (pValor == null) {
             return null;
         }
-        return mapaObjetoPorString.get(UtilSBCoreStringSlugs.gerarSlugSimples(pValor));
+        return mapaObjetoPorString.get(UtilSBCoreStringSlugs.gerarSlugSimples(pValor).toUpperCase());
     }
 }
