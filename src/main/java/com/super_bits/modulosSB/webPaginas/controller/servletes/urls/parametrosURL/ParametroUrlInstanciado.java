@@ -177,7 +177,7 @@ public class ParametroUrlInstanciado implements ItfParametroRequisicaoInstanciad
                             }
                             // caso contrario renova o Objeto
                         } else {
-                            ItfBeanSimples registroRenovado = (ItfBeanSimples) UtilSBPersistencia.getRegistroByID(getValor().getClass(), ((ItfBeanSimples) getValor()).getId(), pEm);
+                            ItfBeanSimples registroRenovado = (ItfBeanSimples) UtilSBPersistencia.getRegistroByID((Class<? extends ItfBeanSimples>) getValor().getClass(), ((ItfBeanSimples) getValor()).getId(), pEm);
                             setValor(registroRenovado);
                         }
 
