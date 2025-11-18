@@ -7,7 +7,7 @@ package com.super_bits.modulosSB.webPaginas.controller.servletes.urls.parametros
 
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.TIPO_PARTE_URL;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.FabObjetosAbstratos;
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -35,6 +35,6 @@ public @interface InfoParametroURL {
 
     public boolean representaEntidadePrincipalMB() default false;
 
-    public Class<? extends ItfFabrica> fabricaObjetosRelacionada() default FabObjetosAbstratos.class;
+    public Class<? extends ComoFabrica> fabricaObjetosRelacionada() default FabObjetosAbstratos.class;
 
 }

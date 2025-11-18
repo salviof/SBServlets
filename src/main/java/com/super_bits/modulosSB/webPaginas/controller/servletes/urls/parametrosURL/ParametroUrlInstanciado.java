@@ -14,9 +14,9 @@ import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.TIPO_PARTE_
 import static com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.TIPO_PARTE_URL.ENTIDADE;
 import static com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.TIPO_PARTE_URL.OBJETO_COM_CONSTRUCTOR;
 import static com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.TIPO_PARTE_URL.TEXTO;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimplesSomenteLeitura;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanVinculadoAEnum;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimplesSomenteLeitura;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeVinculadoAEnum;
 import com.super_bits.modulosSB.webPaginas.controller.servletes.util.UtilFabUrlServlet;
 
 import javax.persistence.EntityManager;
@@ -122,17 +122,17 @@ public class ParametroUrlInstanciado implements ItfParametroRequisicaoInstanciad
                     return (String) valor;
 
                 case ENTIDADE:
-                    return UtilFabUrlServlet.getSlugDoObjeto((ItfBeanSimples) valor);
+                    return UtilFabUrlServlet.getSlugDoObjeto((ComoEntidadeSimples) valor);
 
                 case OBJETO_COM_CONSTRUCTOR:
-                    if (valor instanceof ItfBeanVinculadoAEnum) {
-                        ItfBeanVinculadoAEnum obj = (ItfBeanVinculadoAEnum) valor;
+                    if (valor instanceof ComoEntidadeVinculadoAEnum) {
+                        ComoEntidadeVinculadoAEnum obj = (ComoEntidadeVinculadoAEnum) valor;
                         if (obj.getEnumVinculado() != null) {
                             return obj.getEnumVinculado().getClass().getSimpleName() + "." + obj.getEnumVinculado().toString();
                         }
                     }
-                    if (valor instanceof ItfBeanSimplesSomenteLeitura) {
-                        ItfBeanSimplesSomenteLeitura obj = (ItfBeanSimplesSomenteLeitura) valor;
+                    if (valor instanceof ComoEntidadeSimplesSomenteLeitura) {
+                        ComoEntidadeSimplesSomenteLeitura obj = (ComoEntidadeSimplesSomenteLeitura) valor;
                         return obj.getNome();
                     }
                     break;
@@ -156,10 +156,10 @@ public class ParametroUrlInstanciado implements ItfParametroRequisicaoInstanciad
             switch (getTipoParametro()) {
                 case ENTIDADE:
 
-                    ItfBeanSimples registroByURL = null;
+                    ComoEntidadeSimples registroByURL = null;
                     try {
                         if (SBPersistencia.isConfigurado()) {
-                            registroByURL = (ItfBeanSimples) UtilSBPersistencia.getRegistroByNomeSlug(getTipoEntidade(), (String) pParteEnviada, pEm);
+                            registroByURL = (ComoEntidadeSimples) UtilSBPersistencia.getRegistroByNomeSlug(getTipoEntidade(), (String) pParteEnviada, pEm);
                         } else {
                             System.out.println("O parametro de URL " + getNome() + " é do tipo Entidade, porém este projeto não tem Persistencia configurada");
                         }
@@ -177,7 +177,7 @@ public class ParametroUrlInstanciado implements ItfParametroRequisicaoInstanciad
                             }
                             // caso contrario renova o Objeto
                         } else {
-                            ItfBeanSimples registroRenovado = (ItfBeanSimples) UtilSBPersistencia.getRegistroByID((Class<? extends ItfBeanSimples>) getValor().getClass(), ((ItfBeanSimples) getValor()).getId(), pEm);
+                            ComoEntidadeSimples registroRenovado = (ComoEntidadeSimples) UtilSBPersistencia.getRegistroByID((Class<? extends ComoEntidadeSimples>) getValor().getClass(), ((ComoEntidadeSimples) getValor()).getId(), pEm);
                             setValor(registroRenovado);
                         }
 

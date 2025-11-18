@@ -6,7 +6,7 @@ package com.super_bits.modulosSB.webPaginas.controller.servletes.urls;
 
 import com.super_bits.modulosSB.webPaginas.controller.servletes.util.UtilFabUrlServlet;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -104,9 +104,9 @@ public class UrlInterpretada {
         }
     }
 
-    public ItfBeanSimples getValorComoBeanSimples(ItfFabUrlServletSBFW parametro) {
+    public ComoEntidadeSimples getValorComoBeanSimples(ItfFabUrlServletSBFW parametro) {
         try {
-            return (ItfBeanSimples) partes.get(parametro).getValor();
+            return (ComoEntidadeSimples) partes.get(parametro).getValor();
         } catch (Throwable t) {
             SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "Impossível obter valor do parameto como Bean Simples" + parametro, t);
             return null;

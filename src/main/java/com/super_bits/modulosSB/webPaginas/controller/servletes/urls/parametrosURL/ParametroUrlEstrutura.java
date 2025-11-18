@@ -11,8 +11,8 @@ import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfEstrutur
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfParametroRequisicao;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.TIPO_PARTE_URL;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.FabObjetosAbstratos;
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 import com.super_bits.modulosSB.webPaginas.controller.servletes.tratamentoErro.ErroSBCriticoWeb;
 
 import java.util.HashMap;
@@ -36,11 +36,11 @@ public class ParametroUrlEstrutura implements ItfParametroRequisicao, ItfEstrutu
 
     private boolean possuiFabricaDeObjetos = false;
     private final boolean umParametroDeEntidade;
-    private Map<String, ItfBeanSimples> mapaObjetoPorString;
+    private Map<String, ComoEntidadeSimples> mapaObjetoPorString;
 
     private boolean umParametoEntidadeMBPrincipal;
 
-    public Class<? extends ItfFabrica> fabricaObjetosRelacionada;
+    public Class<? extends ComoFabrica> fabricaObjetosRelacionada;
 
     public ParametroUrlEstrutura(InfoParametroURL pInfo) {
         nome = pInfo.nome();
@@ -83,8 +83,8 @@ public class ParametroUrlEstrutura implements ItfParametroRequisicao, ItfEstrutu
                 possuiFabricaDeObjetos = true;
                 fabricaObjetosRelacionada = pInfo.fabricaObjetosRelacionada();
                 mapaObjetoPorString = new HashMap<>();
-                for (ItfFabrica fab : pInfo.fabricaObjetosRelacionada().getEnumConstants()) {
-                    ItfBeanSimples objeto = (ItfBeanSimples) fab.getRegistro();
+                for (ComoFabrica fab : pInfo.fabricaObjetosRelacionada().getEnumConstants()) {
+                    ComoEntidadeSimples objeto = (ComoEntidadeSimples) fab.getRegistro();
                     mapaObjetoPorString.put(UtilSBCoreStringSlugs.gerarSlugSimples(objeto.getNome()).toUpperCase(), objeto);
                 }
             } else {

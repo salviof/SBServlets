@@ -9,7 +9,7 @@ import com.super_bits.modulosSB.Persistencia.dao.UtilSBPersistencia;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreStringFiltros;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.TIPO_PARTE_URL;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 import com.super_bits.modulosSB.webPaginas.controller.servletes.urls.ItfFabUrlServletSBFW;
 import com.super_bits.modulosSB.webPaginas.controller.servletes.urls.ParteURLServlet;
 import com.super_bits.modulosSB.webPaginas.controller.servletes.urls.UrlInterpretada;
@@ -139,7 +139,7 @@ public class UtilFabUrlServlet {
         }
     }
 
-    public static String getSlugDoObjeto(ItfBeanSimples objSimples) {
+    public static String getSlugDoObjeto(ComoEntidadeSimples objSimples) {
 
         return UtilSBCoreStringFiltros.gerarUrlAmigavel(objSimples.getNome())
                 + "-" + String.valueOf(objSimples.getId());
