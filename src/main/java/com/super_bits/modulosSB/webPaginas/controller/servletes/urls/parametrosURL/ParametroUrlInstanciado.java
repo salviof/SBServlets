@@ -7,7 +7,7 @@ package com.super_bits.modulosSB.webPaginas.controller.servletes.urls.parametros
 import com.super_bits.modulosSB.Persistencia.ConfigGeral.SBPersistencia;
 import com.super_bits.modulosSB.Persistencia.dao.UtilSBPersistencia;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
-import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreStringValidador;
+import com.super_bits.modulosSB.SBCore.UtilGeral.UtilCRCStringValidador;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfEstruturaParametroRequisicao;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfParametroRequisicaoInstanciado;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.TIPO_PARTE_URL;
@@ -63,7 +63,7 @@ public class ParametroUrlInstanciado implements ItfParametroRequisicaoInstanciad
      */
     @Override
     public boolean isValorDoParametroFoiConfigurado() {
-        return UtilSBCoreStringValidador.isNAO_NuloNemBranco(parteURLenviada);
+        return UtilCRCStringValidador.isNAO_NuloNemBranco(parteURLenviada);
     }
 
     @Override

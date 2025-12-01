@@ -5,8 +5,8 @@
 package com.super_bits.modulosSB.webPaginas.controller.servletes.urls.parametrosURL;
 
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
-import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreStringFiltros;
-import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreStringSlugs;
+import com.super_bits.modulosSB.SBCore.UtilGeral.UtilCRCStringFiltros;
+import com.super_bits.modulosSB.SBCore.UtilGeral.UtilCRCStringSlugs;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfEstruturaParametroRequisicao;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfParametroRequisicao;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.TIPO_PARTE_URL;
@@ -85,7 +85,7 @@ public class ParametroUrlEstrutura implements ItfParametroRequisicao, ItfEstrutu
                 mapaObjetoPorString = new HashMap<>();
                 for (ComoFabrica fab : pInfo.fabricaObjetosRelacionada().getEnumConstants()) {
                     ComoEntidadeSimples objeto = (ComoEntidadeSimples) fab.getRegistro();
-                    mapaObjetoPorString.put(UtilSBCoreStringSlugs.gerarSlugSimples(objeto.getNome()).toUpperCase(), objeto);
+                    mapaObjetoPorString.put(UtilCRCStringSlugs.gerarSlugSimples(objeto.getNome()).toUpperCase(), objeto);
                 }
             } else {
 
@@ -173,6 +173,6 @@ public class ParametroUrlEstrutura implements ItfParametroRequisicao, ItfEstrutu
         if (pValor == null) {
             return null;
         }
-        return mapaObjetoPorString.get(UtilSBCoreStringSlugs.gerarSlugSimples(pValor).toUpperCase());
+        return mapaObjetoPorString.get(UtilCRCStringSlugs.gerarSlugSimples(pValor).toUpperCase());
     }
 }
