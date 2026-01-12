@@ -12,7 +12,7 @@ import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.ItfParametr
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.TIPO_PARTE_URL;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.FabObjetosAbstratos;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntidadeSimples;
 import com.super_bits.modulosSB.webPaginas.controller.servletes.tratamentoErro.ErroSBCriticoWeb;
 
 import java.util.HashMap;
