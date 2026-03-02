@@ -173,6 +173,10 @@ public class ParametroUrlEstrutura implements ItfParametroRequisicao, ItfEstrutu
         if (pValor == null) {
             return null;
         }
-        return mapaObjetoPorString.get(UtilCRCStringSlugs.gerarSlugSimples(pValor).toUpperCase());
+        String nome = pValor;
+        if (pValor.contains(".")) {
+            nome = pValor.substring(pValor.lastIndexOf(".") + 1, pValor.length());
+        }
+        return mapaObjetoPorString.get(UtilCRCStringSlugs.gerarSlugSimples(nome).toUpperCase());
     }
 }

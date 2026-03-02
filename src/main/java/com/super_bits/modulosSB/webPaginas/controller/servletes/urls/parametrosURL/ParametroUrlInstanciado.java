@@ -17,6 +17,7 @@ import static com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.TIPO
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntidadeSimples;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntidadeSimplesSomenteLeitura;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoEntidadeVinculadoAEnum;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.EntidadeSimplesOffilineApartirDeSlugDeObjeto;
 import com.super_bits.modulosSB.webPaginas.controller.servletes.util.UtilFabUrlServlet;
 
 import javax.persistence.EntityManager;
@@ -159,7 +160,7 @@ public class ParametroUrlInstanciado implements ItfParametroRequisicaoInstanciad
                     ComoEntidadeSimples registroByURL = null;
                     try {
                         if (SBPersistencia.isConfigurado()) {
-                            registroByURL = (ComoEntidadeSimples) UtilSBPersistencia.getRegistroByNomeSlug(getTipoEntidade(), (String) pParteEnviada, pEm);
+                            registroByURL = (ComoEntidadeSimples) UtilSBPersistencia.getRegistroByNomeSlug(getTipoEntidade(), new EntidadeSimplesOffilineApartirDeSlugDeObjeto((String) pParteEnviada), pEm);
                         } else {
                             System.out.println("O parametro de URL " + getNome() + " é do tipo Entidade, porém este projeto não tem Persistencia configurada");
                         }
